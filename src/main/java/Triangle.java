@@ -1,4 +1,6 @@
-public class Triangle extends GeometricObject {
+import java.io.Serializable;
+
+public class Triangle extends GeometricObject implements Serializable {
     
     private double side1 = 1;
     private double side2 = 1;
@@ -75,16 +77,22 @@ public class Triangle extends GeometricObject {
 
         result += String.format("(%.2f,%.2f),", x1, y1);
 
+        x1 = this.getX();
+        y1 = this.getY();
+
         x1 = x1 + this.getSide1() * Math.cos(angle);
         y1 = y1 + this.getSide1() * Math.sin(angle);
 
-        angle += 2*Math.PI /3 ;
+        angle += Math.PI /2 ;
         result += String.format("(%.2f,%.2f),", x1, y1);
 
-        x1 = x1 +  this.getSide2() * Math.cos(angle);
-        y1 = y1 + this.getSide2() * Math.sin(angle);
+        x1 = this.getX();
+        y1 = this.getY();
+        x1 = y1 +  this.getSide3() * Math.cos(angle);
+        y1 = y1 + this.getSide3() * Math.sin(angle);
 
-        result += String.format("(%.2f,%.2f)", (double)Math.round(x1), Math.floor(y1));
+        result += String.format("(%.2f,%.2f)", x1, y1);
+
 
         return result;
     }

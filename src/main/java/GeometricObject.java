@@ -1,4 +1,4 @@
-public abstract class GeometricObject {
+public abstract class GeometricObject  implements java.io.Serializable{
     private String color = "white";
     private double x = 0;
     private double y = 0;

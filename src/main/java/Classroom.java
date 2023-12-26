@@ -4,10 +4,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class Classroom implements java.io.Serializable {
+public class Classroom implements Serializable {
     
 
     private String id;
@@ -132,6 +133,7 @@ public class Classroom implements java.io.Serializable {
             FileOutputStream writeData = new FileOutputStream(filename);
             ObjectOutputStream writeStream = new ObjectOutputStream(writeData);
 
+        
             writeStream.writeObject(this.participants);
             writeStream.flush();
             writeStream.close();
@@ -145,17 +147,18 @@ public class Classroom implements java.io.Serializable {
     }
 
     public boolean load(String filename){
-        try{
+        try {
             FileInputStream readData = new FileInputStream(filename);
             ObjectInputStream readStream = new ObjectInputStream(readData);
 
             this.removeAllParticipants();
+
             this.participants = (ArrayList<Student>) readStream.readObject();
-  
+
             readStream.close();
             return true;
-        }
-        catch (Exception e) {
+            
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }

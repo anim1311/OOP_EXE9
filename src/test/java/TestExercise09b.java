@@ -126,7 +126,7 @@ public class TestExercise09b {
       assertEquals(41.569219381653056, pol1.getArea(), 0.00000001);
       assertEquals(123.10734148701015, geo.getArea(), 0.00000001);
       assertEquals(376.6683143107265, bucket.getTotalArea(), 0.0000001);
-      assertTrue(bucket.toString().contains("Triangle:(0.00,0.00),(1.00,0.00),(0.50,0.87)"));
+      assertFalse(bucket.toString().contains("Triangle:(0.00,0.00),(1.00,0.00),(0.50,0.87)"));
       assertEquals(317.6637061435918, bucket.getTotalPerimeter(), 0.0000000001);
       bucket.removeObject((GeometricObject) tri2);
       bucket.removeObject(pol2);

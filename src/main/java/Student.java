@@ -2,7 +2,7 @@
 
 import java.util.Date;
 
-public class Student extends User{
+public class Student extends User implements java.io.Serializable{
 
 
     private static int idSeed = 10000;

@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class User {
+public class User implements java.io.Serializable{
     
     private String id;
     private String familyName;
